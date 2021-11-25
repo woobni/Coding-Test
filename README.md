@@ -10,9 +10,9 @@ PS D:\code\python_example> git branch
 
 브랜치의 이름을 master에서 main으로 변경합니다.
 
-PS D:\code\python_example> git branch -m master main
+G:\code\python_example> git branch -m master main
 
-PS D:\code\python_example> git branch
+G:\code\python_example> git branch
 
 * main
 
