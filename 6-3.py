@@ -1,3 +1,4 @@
+# Mark the type with the typing module.
 from typing import List
 
 def reorderLogfiles(logs: List[str]) -> List[str]:
