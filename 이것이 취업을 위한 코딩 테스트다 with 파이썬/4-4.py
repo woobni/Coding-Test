@@ -53,7 +53,7 @@ while True:
         ny = y - dy[direction]
 
         # 뒤로 갈 수 있다면 이동하기
-        if arr[nx][ny] = 0:
+        if arr[nx][ny] == 0:
             x = nx
             y = ny
         # 뒤가 바다로 막혀있는 경우
