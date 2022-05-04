@@ -4,18 +4,18 @@ from collections import deque
 # 앵무새의 수 n 입력받기
 n = int(input())
 
-arr = []
+parrot = []
 # 앵무새가 말한 문장 입력받아서 큐로 저장
 for _ in range(n):
-    arr.append(deque(input().split())) 
+    parrot.append(deque(input().split())) 
 
-def possible(sentence: List[str], arr: List[deque]) -> bool :
+def possible(sentence: List[str], parrot: List[deque]) -> bool :
     i = 0
     cnt = 0
     # sentence가 빌 때까지 반복해서 실제 문장의 단어가 있는지 확인
     while sentence:
-        if arr[i] and sentence[0] == arr[i][0]:
-            arr[i].popleft()
+        if parrot[i] and sentence[0] == parrot[i][0]:
+            parrot[i].popleft()
             sentence.popleft()
             cnt = 0
 
@@ -30,7 +30,7 @@ def possible(sentence: List[str], arr: List[deque]) -> bool :
     # 앵무새가 모든 단어들을 다 말해야 하므로 각 앵무새의 큐가 비어있는지 확인
     empty = 0
     for j in range(n):
-        if not arr[j]:
+        if not parrot[j]:
             empty += 1
     
     if empty == n:
@@ -42,7 +42,7 @@ def possible(sentence: List[str], arr: List[deque]) -> bool :
 # 실제 문장 입력받기
 sentence = deque(input().split())
 
-if possible(sentence, arr):
+if possible(sentence, parrot):
     print("Possible")
 else:
     print("Impossible")
