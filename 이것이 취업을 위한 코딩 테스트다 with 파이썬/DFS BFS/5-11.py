@@ -37,7 +37,7 @@ def bfs(x: int, y: int) -> int:
             if graph[nx][ny] == 0:
                 continue
 
-            # 해당 노등를 처음 방문하는 경우에만 최단 거리 기록
+            # 해당 노드를 처음 방문하는 경우에만 최단 거리 기록
             if graph[nx][ny] == 1:
                 graph[nx][ny] = graph[x][y] + 1
                 queue.append((nx, ny))
