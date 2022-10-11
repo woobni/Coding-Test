@@ -9,12 +9,12 @@ public class PrinterQueue {
 		
 		int T = in.nextInt();	// 테스트 케이스 
  
-		while (T-- > 0) {
+		while (T-- > 0) { // 증감연산자 -- (나중에 - 적용)
 			
 			int N = in.nextInt();
 			int M = in.nextInt();
 			
-			LinkedList<int[]> q = new LinkedList<>();	// Queue로 활용 할 연결리스트
+			LinkedList<int[]> q = new LinkedList<>();	// Queue로 활용 할 연결리스트. <> 타입 선언 생략
  
 			for (int i = 0; i < N; i++) {
 				// {초기 위치, 중요도}
