@@ -1,0 +1,46 @@
+# 다익스트라는 하나의 정점에서 다른 모든 정점까지의 최단거리를 구하는 알고리즘
+# 플로이드워셜은 한 번 실행하여 모든 노드 간 최단거리를 구할 수 있음
+
+import sys
+input = sys.stdin.readline
+INF = int ( 1e9 ) # 무한을 의미하는 값으로 10 억을 설정. 또는 sys.maxsize
+
+n = int(input())
+lines = [list(map(int, input().split())) for _ in range(n)]
+
+q = int(input())
+questions = [list(map(int, input().split())) for _ in range(q)]
+
+def checkOverlap(pivot, opponent):
+    if max(pivot[0], opponent[0]) <= min(pivot[1], opponent[1]):
+        return True
+    return False
+
+def makeGraph():
+    dist = [[INF] * n for _ in range(n)]
+
+    for v in range(n):
+        dist[v][v] = 0
+
+    for (p_idx, pivot) in enumerate(lines):
+        for (o_idx, opponent) in enumerate(lines):
+            if p_idx != o_idx and checkOverlap(pivot, opponent):
+                dist[p_idx][o_idx] = 1
+    return dist
+
+def floyd(dist):
+    for k in range(n):
+        for u in range(n):
+            for v in range(n):
+                dist[u][v] = min(dist[u][v], dist[u][k] + dist[k][v])
+
+def solution():
+    dist = makeGraph()
+    floyd(dist)
+
+    for frm, to in questions:
+        cost = dist[frm-1][to-1]
+        ans = cost if cost != INF else -1
+        print(ans)
+
+solution()
