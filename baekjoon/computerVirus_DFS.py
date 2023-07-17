@@ -19,7 +19,7 @@ def dfs(graph, v, visited):
     visited[v] = 1
     # 현재 노드와 연결된 다른 노드를 재귀적으로 방문
     for i in graph[v]:
-        if visited[i] == 0:
+        if not visited[i]:
             dfs(graph, i, visited)
 
 dfs(graph, 1, visited)
