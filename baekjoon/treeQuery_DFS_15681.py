@@ -2,6 +2,7 @@ from typing import List
 import sys
 
 # 자기 호출 개수 제한. 안하면 메모리 초과..ㅂㄷ 아래 옵션으로 늘려줘야 함
+# Python3의 기본 재귀 깊이가 1000이므로 재귀깊이를 해제한다
 sys.setrecursionlimit(10**6)
 # 안하면 시간 초과..ㅂㄷ
 input=sys.stdin.readline
