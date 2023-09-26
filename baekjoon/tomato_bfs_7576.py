@@ -4,27 +4,36 @@
 # <-> 리스트 - 리스트의 마지막 원소를 삭제는 O(1)이지만, 첫번째 원소를 삭제하면 삭제 후 모든 원소를 앞으로 이동시키기 때문에 시간 복잡도가 O(n)
 from collections import deque
 
-# M은 상자의 가로 칸의 수, N은 상자의 세로 칸의 수
+# 방향 벡터 정의
+dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
+
+# 입력 받기
 m, n = map(int, input().split())
 graph = [list(map(int, input().split())) for _ in range(n)]
 
-queue = deque()
-for i in range(n):
-    for j in range(m):
-        if graph[i][j] == 1:
-            queue.append([i, j])
+# 시작점 찾기와 BFS 함수 정의
+def find_starting_points():
+    queue = deque()
+    for i in range(n):
+        for j in range(m):
+            if graph[i][j] == 1:
+                queue.append([i, j])
+    return queue
 
-def bfs():
-    dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
+def bfs(queue):
     while queue:
         x, y = queue.popleft()
-        for i in range(4):
-            nx, ny = dx[i] + x, dy[i] + y
+        for i in range(len(dx)):
+            nx, ny = x + dx[i], y + dy[i]
             if 0 <= nx < n and 0 <= ny < m and graph[nx][ny] == 0:
                 graph[nx][ny] = graph[x][y] + 1
                 queue.append([nx, ny])
 
-bfs()
+# 시작점 찾기
+queue = find_starting_points()
+
+# BFS 수행
+bfs(queue)
 
 anw = 0
 for row in graph:
