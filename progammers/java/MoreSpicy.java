@@ -1,6 +1,7 @@
 package progammers.java;
 
 /* 
+- https://school.programmers.co.kr/learn/courses/30/lessons/42626
 - 힙(Heap)은 우선순위 큐를 위해 고안된 완전이진트리 형태의 자료구조
 - 여러 개의 값 중 최댓값 또는 최솟값을 찾아내는 연산이 빠르다
 - 우선순위 큐를 힙이 아니라 배열 또는 연결리스트를 이용하여 구현할 수도 있다.
